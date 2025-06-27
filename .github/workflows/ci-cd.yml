@@ -35,6 +35,11 @@ jobs:
       with:
         image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/imc-web:latest
 
+    - name: Scan image with Trivy
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/imc-db:latest
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
