@@ -140,6 +140,8 @@ Réponse attendue :
 | {<br /> "IMC":22.86<br />} |
 | -------------------- |
 
+![image](https://github.com/user-attachments/assets/3d6edb7a-5251-42e1-8d07-7ebd36443e90)
+
 ---
 
 **
