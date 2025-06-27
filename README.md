@@ -1,5 +1,3 @@
-**
-
 # Projet DevSecOps
 
 ## Calcul IMC, CI/CD sécurisé et scan de vulnérabilités
@@ -143,5 +141,3 @@ Réponse attendue :
 ![image](https://github.com/user-attachments/assets/3d6edb7a-5251-42e1-8d07-7ebd36443e90)
 
 ---
-
-**
