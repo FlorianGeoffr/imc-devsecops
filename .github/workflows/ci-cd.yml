@@ -43,9 +43,11 @@ jobs:
     - name: Install Python dependencies
       run: pip install -r app/requirements.txt
 
+    - name: Install Snyk CLI
+      run: pip install snyk
+
+    - name: Authenticate with Snyk
+      run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
     - name: Scan dependencies with Snyk
-      uses: snyk/actions/python@master
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      with:
-        args: --file=app/requirements.txt --project-name=imc-web
+      run: snyk test --file=app/requirements.txt --project-name=imc-web
