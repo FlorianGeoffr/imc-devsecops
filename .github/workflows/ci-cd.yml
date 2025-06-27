@@ -30,11 +30,21 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/imc-db:latest
 
-    - uses: aquasecurity/trivy-action@master
+    - name: Scan image with Trivy
+      uses: aquasecurity/trivy-action@master
       with:
         image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/imc-web:latest
 
-    - uses: snyk/actions/python@master
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Install Python dependencies
+      run: pip install -r app/requirements.txt
+
+    - name: Scan dependencies with Snyk
+      uses: snyk/actions/python@master
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
