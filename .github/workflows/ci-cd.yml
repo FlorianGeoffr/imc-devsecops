@@ -43,8 +43,11 @@ jobs:
     - name: Install Python dependencies
       run: pip install -r app/requirements.txt
 
-    - name: Install Snyk CLI
-      run: pip install snyk
+    - name: Download Snyk CLI
+      run: |
+        curl -Lo snyk https://static.snyk.io/cli/latest/snyk-linux
+        chmod +x snyk
+        mv snyk /usr/local/bin/
 
     - name: Authenticate with Snyk
       run: snyk auth ${{ secrets.SNYK_TOKEN }}
